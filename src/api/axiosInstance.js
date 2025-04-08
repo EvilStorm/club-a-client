@@ -10,6 +10,11 @@ const axiosInstance = axios.create({
 });
 
 let authToken = null; // SignIn Token을 저장할 변수
+const storedAuthToken = localStorage.getItem("authToken");
+if (storedAuthToken) {
+  authToken = storedAuthToken;
+  axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
+}
 
 // SignIn Token 설정 함수
 export const setAuthToken = (token) => {
@@ -68,7 +73,7 @@ axiosInstance.interceptors.response.use(
           localStorage.setItem("refreshToken", newRefreshToken);
 
           // SignIn Token 업데이트
-          setAuthToken(newAccessToken);
+          setAuthToken(refreshResponse.data.tokens);
 
           // 기존 요청 헤더 업데이트 및 재시도
           originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;

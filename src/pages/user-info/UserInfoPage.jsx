@@ -112,7 +112,6 @@ function UserInfoPage() {
         };
 
         await axiosInstance.patch("/users/me", userData);
-        console.log("사용자 정보 업데이트 성공:", userData);
         navigate("/join/userInfo/extends");
       } catch (error) {
         console.error("사용자 정보 업데이트 실패:", error);

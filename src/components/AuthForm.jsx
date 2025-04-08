@@ -27,6 +27,7 @@ import axiosInstance, { setAuthToken } from "../api/axiosInstance";
 import SimpleConfirmPopup from "../components/SimpleConfirmPopup";
 import { useNavigate } from "react-router-dom";
 
+
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,7 +53,6 @@ const AuthForm = () => {
 
   const handleClosePopup = () => {
     setOpenPopup(false);
-    console.log("팝업 닫힘");
   };
 
   const isEmailValid = (email) => {
@@ -68,18 +68,12 @@ const AuthForm = () => {
 
   const handleLoginSuccess = async (email, loginType) => {
     const serviceType = "tenifo"; // 서비스 타입은 'tenifo'로 고정
-    console.log(`???`);
     try {
       const response = await axiosInstance.post("/auth/register-account", {
         email: email,
         loginType: loginType,
         serviceType: serviceType,
       });
-
-      // Nest.js 서버로부터의 응답 처리 (예: 성공 메시지)
-      console.log("Account 등록 성공:", response.data);
-      // 추가적인 로그인 성공 후 처리 (예: 리디렉션, 상태 업데이트)
-
       await signIn(email, loginType, serviceType);
     } catch (error) {
       console.error(
@@ -100,7 +94,6 @@ const AuthForm = () => {
 
       setAuthToken(response.data.tokens);
 
-      console.log(response);
 
       if (response.data.user.name) {
         if (response.data.user.extendsInfo.startedAt) {
@@ -108,14 +101,9 @@ const AuthForm = () => {
         } else {
           navigate("/join/userInfo/extends");
         }
-
-        console.log("있다.");
       } else {
-        console.log("없다..");
         navigate("/join/userInfo");
       }
-
-      console.log("로그인 성공:", response.data);
     } catch (error) {
       console.error(
         "사용자 정보 조회 실패:",
@@ -187,7 +175,6 @@ const AuthForm = () => {
       setSuccessMessage("로그인되었습니다.");
       // 로그인 성공 후 리디렉션 또는 다른 처리
     } catch (error) {
-      console.log(error.message);
       if (error.message.includes("too-many-requests")) {
         handleOpenPopup(
           "너무 많은 시도를 했습니다. 잠시 후 다시 시도해주세요."

@@ -12,8 +12,8 @@ function SignInPage() {
 
   useEffect(() => {
     // 컴포넌트가 처음 마운트될 때 실행
-    localStorage.clear(); // localStorage 전체 비우기
-    clearUser(); // Zustand 스토어의 사용자 정보 삭제
+    // localStorage.clear(); // localStorage 전체 비우기
+    // clearUser(); // Zustand 스토어의 사용자 정보 삭제
 
     // (선택 사항) 만약 특정 localStorage 아이템만 삭제하고 싶다면 아래와 같이 사용
     // localStorage.removeItem('authToken');

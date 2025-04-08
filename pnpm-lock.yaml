@@ -26,6 +26,9 @@ importers:
       '@mui/x-date-pickers':
         specifier: ^7.28.2
         version: 7.28.2(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(react@19.1.0))(@mui/material@7.0.1(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(@mui/system@7.0.1(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(react@19.1.0))(@types/react@19.0.12)(date-fns@2.30.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@react-hook/window-size':
+        specifier: ^3.1.1
+        version: 3.1.1(react@19.1.0)
       axios:
         specifier: ^1.8.4
         version: 1.8.4
@@ -38,12 +41,18 @@ importers:
       ko:
         specifier: link:date-fns/locale/ko
         version: link:date-fns/locale/ko
+      prop-types:
+        specifier: ^15.8.1
+        version: 15.8.1
       react:
         specifier: ^19.0.0
         version: 19.1.0
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      react-hook:
+        specifier: ^0.0.1
+        version: 0.0.1
       react-router-dom:
         specifier: ^7.4.1
         version: 7.4.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -802,6 +811,31 @@ packages:
 
   '@protobufjs/utf8@1.1.0':
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
+
+  '@react-hook/debounce@3.0.0':
+    resolution: {integrity: sha512-ir/kPrSfAzY12Gre0sOHkZ2rkEmM4fS5M5zFxCi4BnCeXh2nvx9Ujd+U4IGpKCuPA+EQD0pg1eK2NGLvfWejag==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/event@1.2.6':
+    resolution: {integrity: sha512-JUL5IluaOdn5w5Afpe/puPa1rj8X6udMlQ9dt4hvMuKmTrBS1Ya6sb4sVgvfe2eU4yDuOfAhik8xhbcCekbg9Q==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/latest@1.0.3':
+    resolution: {integrity: sha512-dy6duzl+JnAZcDbNTfmaP3xHiKtbXYOaz3G51MGVljh548Y8MWzTr+PHLOfvpypEVW9zwvl+VyKjbWKEVbV1Rg==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/throttle@2.2.0':
+    resolution: {integrity: sha512-LJ5eg+yMV8lXtqK3lR+OtOZ2WH/EfWvuiEEu0M3bhR7dZRfTyEJKxH1oK9uyBxiXPtWXiQggWbZirMCXam51tg==}
+    peerDependencies:
+      react: '>=16.8'
+
+  '@react-hook/window-size@3.1.1':
+    resolution: {integrity: sha512-yWnVS5LKnOUIrEsI44oz3bIIUYqflamPL27n+k/PC//PsX/YeWBky09oPeAoc9As6jSH16Wgo8plI+ECZaHk3g==}
+    peerDependencies:
+      react: '>=16.8'
 
   '@rollup/plugin-inject@5.0.5':
     resolution: {integrity: sha512-2+DEJbNBoPROPkgTDNe8/1YXWcqxbN5DTjASVIOx8HS+pITXushyNiBV56RB08zuptzz8gT3YfkqriTBVycepg==}
@@ -1821,6 +1855,9 @@ packages:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
       react: ^19.1.0
+
+  react-hook@0.0.1:
+    resolution: {integrity: sha512-2/Guf88/dGyFgUT7QDtBJ1l7V5yqTcAHlNRIZNTu2xg0KkDjaiYZp79ah49NDaLMI/J7voWcKLU8wMONG4A/1g==}
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2914,6 +2951,31 @@ snapshots:
   '@protobufjs/pool@1.1.0': {}
 
   '@protobufjs/utf8@1.1.0': {}
+
+  '@react-hook/debounce@3.0.0(react@19.1.0)':
+    dependencies:
+      '@react-hook/latest': 1.0.3(react@19.1.0)
+      react: 19.1.0
+
+  '@react-hook/event@1.2.6(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
+
+  '@react-hook/latest@1.0.3(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
+
+  '@react-hook/throttle@2.2.0(react@19.1.0)':
+    dependencies:
+      '@react-hook/latest': 1.0.3(react@19.1.0)
+      react: 19.1.0
+
+  '@react-hook/window-size@3.1.1(react@19.1.0)':
+    dependencies:
+      '@react-hook/debounce': 3.0.0(react@19.1.0)
+      '@react-hook/event': 1.2.6(react@19.1.0)
+      '@react-hook/throttle': 2.2.0(react@19.1.0)
+      react: 19.1.0
 
   '@rollup/plugin-inject@5.0.5(rollup@4.38.0)':
     dependencies:
@@ -4013,6 +4075,8 @@ snapshots:
     dependencies:
       react: 19.1.0
       scheduler: 0.26.0
+
+  react-hook@0.0.1: {}
 
   react-is@16.13.1: {}
 
